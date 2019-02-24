@@ -7,6 +7,7 @@ import { UserAddComponent } from './pages/user-add/user-add.component';
 import { RoleDetailsComponent } from './pages/role-details/role-details.component';
 import { RoleAddComponent } from './pages/role-add/role-add.component';
 import { UserResolver } from './resolvers/user.resolver';
+import { RoleResolver } from './resolvers/role.resolver';
 
 const routes: Routes = [
   {
@@ -57,14 +58,20 @@ const routes: Routes = [
     data: {
       title: 'Role details'
     },
-    component: RoleDetailsComponent
+    component: RoleDetailsComponent,
+    resolve: {
+      role: RoleResolver
+    }
   },
   {
     path: 'roles/:name/edit',
     data: {
       title: 'Role edit'
     },
-    component: RoleAddComponent
+    component: RoleAddComponent,
+    resolve: {
+      role: RoleResolver
+    }
   },
   {
     path: 'roles/add',

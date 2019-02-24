@@ -9,7 +9,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { MenuModule } from 'primeng/menu';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
-import { MessageService, MessageModule, CardModule, ConfirmDialogModule, ConfirmationService, TooltipModule, InputTextModule, ListboxModule } from 'primeng/primeng';
+import { MessageService, MessageModule, CardModule, ConfirmDialogModule, ConfirmationService, TooltipModule, InputTextModule, ListboxModule, PickListModule } from 'primeng/primeng';
 import { RoleHomeComponent } from './pages/role-home/role-home.component';
 import { TableModule } from 'primeng/table';
 import { UserService } from './services/user.service';
@@ -50,7 +50,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     InputTextModule,
-    ListboxModule
+    ListboxModule,
+    PickListModule
   ],
   providers: [UserService, RoleService, MessageService, ConfirmationService],
   bootstrap: [AppComponent]

@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { MessageService } from 'primeng/api';
+import { Role } from 'src/app/domain/role';
+import { RoleService } from 'src/app/services/role.service';
 
 @Component({
   selector: 'app-user-add',
@@ -13,20 +15,19 @@ import { MessageService } from 'primeng/api';
 export class UserAddComponent implements OnInit {
   user: User;
   title: string;
-  newRecord: boolean;
+  isNewRecord = true;
 
   form: FormGroup;
 
-  cities: any[];
+  unselectedRoles = [];
 
-  selectedCity: any;
-
-  selectedCities: any[];
+  selectedRoles = [];
 
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private userService: UserService,
+    private roleService: RoleService,
     private router: Router,
     private messageService: MessageService
   ) {
@@ -35,30 +36,6 @@ export class UserAddComponent implements OnInit {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]]
     });
-
-    this.cities = [
-      { name: 'New York', code: 'NY' },
-      { name: 'Rome', code: 'RM' },
-      { name: 'London', code: 'LDN' },
-      { name: 'Istanbul', code: 'IST' },
-      { name: 'New York', code: 'NY' },
-      { name: 'Rome', code: 'RM' },
-      { name: 'London', code: 'LDN' },
-      { name: 'Istanbul', code: 'IST' },
-      { name: 'New York', code: 'NY' },
-      { name: 'Rome', code: 'RM' },
-      { name: 'London', code: 'LDN' },
-      { name: 'Istanbul', code: 'IST' },
-      { name: 'New York', code: 'NY' },
-      { name: 'Rome', code: 'RM' },
-      { name: 'London', code: 'LDN' },
-      { name: 'Istanbul', code: 'IST' },
-      { name: 'New York', code: 'NY' },
-      { name: 'Rome', code: 'RM' },
-      { name: 'London', code: 'LDN' },
-      { name: 'Istanbul', code: 'IST' },
-      { name: 'Paris', code: 'PRS' }
-    ];
   }
 
   ngOnInit() {
@@ -67,21 +44,38 @@ export class UserAddComponent implements OnInit {
       this.title = data.title;
 
       if (this.user) {
+        this.selectedRoles = this.user.roles;
+        this.isNewRecord = false;
         this.form.patchValue(this.user);
+        this.substractSelectedRolesToAllRolesList();
       }
     });
+
+    this.roleService.getRoles().subscribe(roles => {
+      this.unselectedRoles = roles;
+      this.substractSelectedRolesToAllRolesList();
+    });
+  }
+  substractSelectedRolesToAllRolesList(): any {
+    if (this.selectedRoles.length > 0 && this.unselectedRoles.length > 0) {
+      this.unselectedRoles = this.unselectedRoles.filter((el) => this.selectedRoles.indexOf(el) > 0);
+    }
   }
 
   saveUser() {
-    if (this.user) {
-      this.updateUser();
-    } else {
-      this.createUser();
+    if (this.form.valid && !this.form.pristine) {
+      if (this.user) {
+        this.updateUser();
+      } else {
+        this.createUser();
+      }
     }
   }
 
   createUser() {
-    this.userService.createUser(this.form.value).subscribe(result => {
+    const user = this.form.value;
+    user.roles = this.selectedRoles;
+    this.userService.createUser(user).subscribe(result => {
       this.messageService.add({
         severity: 'success',
         summary: 'Success',
@@ -92,7 +86,9 @@ export class UserAddComponent implements OnInit {
   }
 
   updateUser() {
-    this.userService.updateUser(this.form.value).subscribe(result => {
+    const user = this.form.value;
+    user.roles = this.selectedRoles;
+    this.userService.updateUser(user).subscribe(result => {
       this.messageService.add({
         severity: 'success',
         summary: 'Success',
@@ -100,5 +96,9 @@ export class UserAddComponent implements OnInit {
       });
       this.router.navigate(['users', result.login, 'details']);
     });
+  }
+
+  setFormAsTouched() {
+    this.form.markAsDirty();
   }
 }

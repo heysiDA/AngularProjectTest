@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Role } from 'src/app/domain/role';
 
 @Component({
   selector: 'app-role-details',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoleDetailsComponent implements OnInit {
 
-  constructor() { }
+  role: Role;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.data.subscribe((data: { role: Role }) => {
+      this.role = data.role;
+    });
   }
 
 }

@@ -1,3 +1,48 @@
-<p>
-  role-details works!
-</p>
+<br />
+<p-card>
+  <h2>Role details</h2>
+
+  <div class="p-grid">
+    <div class="p-lg-6 p-md-12">
+      <div class="p-grid">
+        <div class="p-col-12">
+          <div class="form-group">
+            <h3>Name:</h3>
+            {{ role.name }}
+          </div>
+        </div>
+        <div class="p-col-12">
+          <div class="form-group">
+            <h3>Description:</h3>
+            {{ role.description }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-lg-6 p-md-12">
+      Something
+    </div>
+  </div>
+
+  <div style="text-align: right;">
+    <button
+      style="margin-right: 0.3em"
+      pButton
+      icon="pi pi-pencil"
+      class="ui-button-raised"
+      label="Edit"
+      pTooltip="Edit"
+      tooltipPosition="right"
+      routerLink="../edit"
+    ></button>
+    <button
+      pButton
+      icon="pi pi-plus"
+      class="ui-button-raised"
+      label="Go Back"
+      pTooltip="Go Back"
+      tooltipPosition="right"
+      routerLink="/roles"
+    ></button>
+  </div>
+</p-card>

@@ -2,30 +2,56 @@
 <p-card>
   <h2>User details</h2>
 
-  <strong>Login:</strong> {{ user.login }}
-  <br>
-  <strong>Name:</strong> {{ user.name }}
-  <br>
-  <strong>Email:</strong> {{ user.email }}
+  <div class="p-grid">
+    <div class="p-lg-6 p-md-12">
+      <div class="p-grid">
+        <div class="p-col-12">
+          <div class="form-group">
+            <h3>Login:</h3>
+            {{ user.login }}
+          </div>
+        </div>
+        <div class="p-col-12">
+          <div class="form-group">
+            <h3>Name:</h3>
+            {{ user.name }}
+          </div>
+        </div>
+        <div class="p-col-12">
+          <div class="form-group">
+            <h3>Email:</h3>
+            {{ user.email }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-lg-6 p-md-12">
+      <h3>Roles:</h3>
+      <ul>
+        <li *ngFor="let role of user.roles">{{ role.name }}</li>
+      </ul>
+    </div>
+  </div>
 
-  <button
-    style="float: right;"
-    pButton
-    icon="pi pi-plus"
-    class="ui-button-raised"
-    label="Go Back"
-    pTooltip="Go Back"
-    tooltipPosition="right"
-    routerLink="/users"
-  ></button>
-  <button
-    style="float: right; margin-right: 0.3em"
-    pButton
-    icon="pi pi-pencil"
-    class="ui-button-raised"
-    label="Edit"
-    pTooltip="Edit"
-    tooltipPosition="right"
-    routerLink="../edit"
-  ></button>
+  <div style="text-align: right;">
+    <button
+      style="margin-right: 0.3em"
+      pButton
+      icon="pi pi-pencil"
+      class="ui-button-raised"
+      label="Edit"
+      pTooltip="Edit"
+      tooltipPosition="right"
+      routerLink="../edit"
+    ></button>
+    <button
+      pButton
+      icon="pi pi-plus"
+      class="ui-button-raised"
+      label="Go Back"
+      pTooltip="Go Back"
+      tooltipPosition="right"
+      routerLink="/users"
+    ></button>
+  </div>
 </p-card>
