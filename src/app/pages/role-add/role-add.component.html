@@ -9,7 +9,7 @@
       <div class="p-col-12">
         <div class="form-group">
           <h3>Name:</h3>
-          <input type="text" pInputText formControlName="name" style="width:100%" [disabled]="role"/>
+          <input type="text" pInputText formControlName="name" style="width:100%"/>
           <div *ngIf="form.get('name').errors" class="invalid-feedback">
             <div *ngIf="form.get('name').hasError('required')">Name is required</div>
           </div>
@@ -50,4 +50,3 @@
     </p-footer>
   </form>
 </p-card>
-<p-toast></p-toast>

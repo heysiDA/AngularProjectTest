@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RoleService } from 'src/app/services/role.service';
 import { MessageService } from 'primeng/api';
+import { error } from 'util';
 
 @Component({
   selector: 'app-role-add',
@@ -13,7 +14,6 @@ import { MessageService } from 'primeng/api';
 export class RoleAddComponent implements OnInit {
   role: Role;
   title: string;
-  newRecord: boolean;
 
   form: FormGroup;
 
@@ -36,6 +36,7 @@ export class RoleAddComponent implements OnInit {
       this.title = data.title;
 
       if (this.role) {
+        this.form.get('name').disable();
         this.form.patchValue(this.role);
       }
     });
@@ -53,22 +54,14 @@ export class RoleAddComponent implements OnInit {
 
   createRole() {
     this.roleService.createRole(this.form.value).subscribe(result => {
-      this.messageService.add({
-        severity: 'success',
-        summary: 'Success',
-        detail: `Role with name ${result.name} has been created.`
-      });
-      this.router.navigate(['roles', result.name, 'details']);
+      if (result) {
+        this.router.navigate(['roles', result.name, 'details']);
+      }
     });
   }
 
   updateRole() {
     this.roleService.updateRole(this.form.value).subscribe(result => {
-      this.messageService.add({
-        severity: 'success',
-        summary: 'Success',
-        detail: `Role with name ${result.name} has been updated.`
-      });
       this.router.navigate(['roles', result.name, 'details']);
     });
   }

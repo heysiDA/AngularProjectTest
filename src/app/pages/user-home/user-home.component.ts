@@ -9,14 +9,17 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   styleUrls: ['./user-home.component.css']
 })
 export class UserHomeComponent implements OnInit {
-
   cols: any[];
 
   users: User[];
 
   loading = false;
 
-  constructor(private userService: UserService, private confirmationService: ConfirmationService, private messageService: MessageService) {
+  constructor(
+    private userService: UserService,
+    private confirmationService: ConfirmationService,
+    private messageService: MessageService
+  ) {
     this.cols = [
       { field: 'login', header: 'Login', width: '10%' },
       { field: 'name', header: 'Name', width: '20%' },
@@ -29,7 +32,11 @@ export class UserHomeComponent implements OnInit {
   }
 
   loadUsers() {
-    this.userService.getUsers().subscribe(users => this.users = users);
+    this.loading = true;
+    this.userService.getUsers().subscribe(users => {
+      this.users = users;
+      this.loading = false;
+    });
   }
 
   confirmUserDeletion(userLogin: string) {
@@ -38,9 +45,7 @@ export class UserHomeComponent implements OnInit {
       accept: () => {
         this.deleteUser(userLogin);
       },
-      reject: () => {
-
-      }
+      reject: () => {}
     });
   }
 
@@ -48,10 +53,10 @@ export class UserHomeComponent implements OnInit {
     this.userService.deleteUser(userLogin).subscribe(response => {
       this.loadUsers();
       this.messageService.add({
-        severity: 'success', summary: 'Success',
+        severity: 'success',
+        summary: 'Success',
         detail: `User with login ${userLogin} has been deleted.`
       });
     });
   }
-
 }

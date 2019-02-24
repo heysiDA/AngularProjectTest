@@ -15,7 +15,6 @@ import { RoleService } from 'src/app/services/role.service';
 export class UserAddComponent implements OnInit {
   user: User;
   title: string;
-  isNewRecord = true;
 
   form: FormGroup;
 
@@ -45,7 +44,7 @@ export class UserAddComponent implements OnInit {
 
       if (this.user) {
         this.selectedRoles = this.user.roles;
-        this.isNewRecord = false;
+        this.form.get('login').disable();
         this.form.patchValue(this.user);
         this.substractSelectedRolesToAllRolesList();
       }
@@ -58,7 +57,9 @@ export class UserAddComponent implements OnInit {
   }
   substractSelectedRolesToAllRolesList(): any {
     if (this.selectedRoles.length > 0 && this.unselectedRoles.length > 0) {
-      this.unselectedRoles = this.unselectedRoles.filter((el) => this.selectedRoles.indexOf(el) > 0);
+      this.unselectedRoles = this.unselectedRoles.filter(
+        el => this.selectedRoles.map(role => role.name).indexOf(el.name) < 0
+      );
     }
   }
 
@@ -76,12 +77,9 @@ export class UserAddComponent implements OnInit {
     const user = this.form.value;
     user.roles = this.selectedRoles;
     this.userService.createUser(user).subscribe(result => {
-      this.messageService.add({
-        severity: 'success',
-        summary: 'Success',
-        detail: `User with login ${result.login} has been created.`
-      });
-      this.router.navigate(['users', result.login, 'details']);
+      if (result) {
+        this.router.navigate(['users', result.login, 'details']);
+      }
     });
   }
 
@@ -89,11 +87,6 @@ export class UserAddComponent implements OnInit {
     const user = this.form.value;
     user.roles = this.selectedRoles;
     this.userService.updateUser(user).subscribe(result => {
-      this.messageService.add({
-        severity: 'success',
-        summary: 'Success',
-        detail: `User with login ${result.login} has been updated.`
-      });
       this.router.navigate(['users', result.login, 'details']);
     });
   }
