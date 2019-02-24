@@ -1,0 +1,31 @@
+<br />
+<p-card>
+  <h2>User details</h2>
+
+  <strong>Login:</strong> {{ user.login }}
+  <br>
+  <strong>Name:</strong> {{ user.name }}
+  <br>
+  <strong>Email:</strong> {{ user.email }}
+
+  <button
+    style="float: right;"
+    pButton
+    icon="pi pi-plus"
+    class="ui-button-raised"
+    label="Go Back"
+    pTooltip="Go Back"
+    tooltipPosition="right"
+    routerLink="/users"
+  ></button>
+  <button
+    style="float: right; margin-right: 0.3em"
+    pButton
+    icon="pi pi-pencil"
+    class="ui-button-raised"
+    label="Edit"
+    pTooltip="Edit"
+    tooltipPosition="right"
+    routerLink="../edit"
+  ></button>
+</p-card>
