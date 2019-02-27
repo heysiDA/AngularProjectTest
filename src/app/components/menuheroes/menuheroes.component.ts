@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menuheroes.component.css']
 })
 export class MenuheroesComponent implements OnInit {
-
+  hero = 'Windstorm';
+  
   constructor() { }
 
   ngOnInit() {
