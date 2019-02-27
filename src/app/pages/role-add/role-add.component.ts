@@ -36,7 +36,6 @@ export class RoleAddComponent implements OnInit {
       this.title = data.title;
 
       if (this.role) {
-        this.form.get('name').disable();
         this.form.patchValue(this.role);
       }
     });

@@ -44,7 +44,6 @@ export class UserAddComponent implements OnInit {
 
       if (this.user) {
         this.selectedRoles = this.user.roles;
-        this.form.get('login').disable();
         this.form.patchValue(this.user);
         this.substractSelectedRolesToAllRolesList();
       }

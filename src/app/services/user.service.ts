@@ -23,7 +23,7 @@ export class UserService {
       map(result => result),
       catchError((responseError, caught) => {
         this.messageService.add({
-          severity: 'warning',
+          severity: 'error',
           summary: 'Error',
           detail: responseError.error.message
         });
