@@ -1,0 +1,83 @@
+<br />
+<p-card>
+  <h2>Roles management</h2>
+  <button
+    style="margin-bottom: 0.3em"
+    pButton
+    icon="pi pi-plus"
+    class="ui-button-raised"
+    label="Add role"
+    routerLink="add"
+  ></button>
+  <p-table
+    #dt
+    [loading]="loading"
+    [paginator]="true"
+    [rows]="10"
+    [value]="roles"
+    [responsive]="true"
+    [columns]="cols"
+    [resizableColumns]="true"
+    [paginator]="true"
+  >
+    <ng-template pTemplate="caption">
+      <div style="text-align: right">
+        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+        <input
+          type="text"
+          pInputText
+          size="50"
+          placeholder="Filter"
+          (input)="dt.filterGlobal($event.target.value, 'contains')"
+          style="width:auto"
+        />
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th *ngFor="let col of cols" [pSortableColumn]="col.field" pResizableColumn>
+          <p-sortIcon [field]="col.field"></p-sortIcon>
+          {{ col.header }}
+        </th>
+        <th style="width: 15%;">Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage" let-columns>
+      <tr>
+        <td [attr.colspan]="columns.length + 1" style="text-align: center">
+          Not found any roles
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr>
+        <td *ngFor="let col of columns" class="ui-resizable-column">
+          {{ rowData[col.field] }}
+        </td>
+        <td class="ui-resizable-column">
+          <div style="text-align: center;">
+            <div
+              class="fa fa-info icon"
+              pTooltip="Ver"
+              tooltipPosition="bottom"
+              [routerLink]="[rowData.name, 'details']"
+            ></div>
+            <div
+              class="fa fa-pencil icon"
+              pTooltip="Editar"
+              tooltipPosition="bottom"
+              [routerLink]="[rowData.name, 'edit']"
+            ></div>
+            <div
+              class="fa fa-trash icon"
+              pTooltip="Eliminar"
+              tooltipPosition="bottom"
+              (click)="confirmRoleDeletion(rowData.name)"
+            ></div>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

@@ -1,0 +1,53 @@
+<br />
+<p-card>
+  <h2>User details</h2>
+
+  <div class="p-grid">
+    <div class="p-lg-6 p-md-12">
+      <div class="p-grid">
+        <div class="p-col-12">
+          <div class="form-group">
+            <h3>Login:</h3>
+            {{ user.login }}
+          </div>
+        </div>
+        <div class="p-col-12">
+          <div class="form-group">
+            <h3>Name:</h3>
+            {{ user.name }}
+          </div>
+        </div>
+        <div class="p-col-12">
+          <div class="form-group">
+            <h3>Email:</h3>
+            {{ user.email }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-lg-6 p-md-12">
+      <h3>Roles:</h3>
+      <ul>
+        <li *ngFor="let role of user.roles">{{ role.name }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="text-align: right;">
+    <button
+      style="margin-right: 0.3em"
+      pButton
+      icon="fa fa-pencil"
+      class="ui-button-raised"
+      label="Edit"
+      routerLink="../edit"
+    ></button>
+    <button
+      pButton
+      icon="fa fa-arrow-left"
+      class="ui-button-raised"
+      label="Go Back"
+      routerLink="/users"
+    ></button>
+  </div>
+</p-card>
