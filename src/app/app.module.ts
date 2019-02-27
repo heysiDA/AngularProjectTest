@@ -21,6 +21,7 @@ import { RoleAddComponent } from './pages/role-add/role-add.component';
 import { UserAddComponent } from './pages/user-add/user-add.component';
 import { ToastModule } from 'primeng/toast';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MenuheroesComponent } from './components/menuheroes/menuheroes.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UserDetailsComponent,
     RoleDetailsComponent,
     RoleAddComponent,
-    UserAddComponent
+    UserAddComponent,
+    MenuheroesComponent
   ],
   imports: [
     BrowserModule,
