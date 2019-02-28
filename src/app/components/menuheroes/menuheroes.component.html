@@ -2,16 +2,7 @@
   menuheroes works!
 </p> -->
 <!-- {{heroe}} -->
-<div *ngIf="selectedHeroe">
-    <h2>{{selectedHeroe.name | uppercase}} Details</h2>
-    <div><span>id: </span>{{selectedHeroe.id}}</div>
-
-    <div>
-      <label>name:
-        <input [(ngModel)]="selectedHeroe.name" placeholder="name">
-      </label>
-    </div>
-</div>
+<app-heroe-detail [heroe]="selectedHeroe"></app-heroe-detail>
 <h2>My Heroes</h2>
 <ul class="heroes">
   <li *ngFor="let heroe of heroes" (click)="onSelect(heroe)" [class.selected]="heroe === selectedHeroe">
