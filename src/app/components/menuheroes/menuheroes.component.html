@@ -2,11 +2,19 @@
   menuheroes works!
 </p> -->
 <!-- {{heroe}} -->
-<h2>{{heroe.name | uppercase}} Details</h2>
-<div><span>id: </span>{{heroe.id}}</div>
+<div *ngIf="selectedHeroe">
+    <h2>{{selectedHeroe.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{selectedHeroe.id}}</div>
 
-<div>
-  <label>name:
-    <input [(ngModel)]="heroe.name" placeholder="name">
-  </label>
+    <div>
+      <label>name:
+        <input [(ngModel)]="selectedHeroe.name" placeholder="name">
+      </label>
+    </div>
 </div>
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let heroe of heroes" (click)="onSelect(heroe)" [class.selected]="heroe === selectedHeroe">
+    <span class="badge">{{heroe.id}}</span> {{heroe.name}}
+  </li>
+</ul>
