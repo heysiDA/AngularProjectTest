@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserHomeComponent } from './pages/user-home/user-home.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -24,6 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuheroesComponent } from './components/menuheroes/menuheroes.component';
 import { HeroeDetailComponent } from './pages/heroe-detail/heroe-detail.component';
 import { MessagesComponent } from './components/messages/messages.component';
+import {AppRoutingModule } from './app-routing.module';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { MessagesComponent } from './components/messages/messages.component';
     MenuheroesComponent,
     HeroeDetailComponent,
     MessagesComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
