@@ -16,16 +16,16 @@ export class MenuheroesComponent implements OnInit {
 
   // heroes = HEROES;
   heroes: Heroe[];
-  selectedHeroe: Heroe;
+  // selectedHeroe: Heroe;
 
   constructor(private heroeService: HeroeService) { }
 
   ngOnInit() {
     this.getHeroes();
   }
-  onSelect(heroe: Heroe): void {
-    this.selectedHeroe = heroe;
-  }
+  // onSelect(heroe: Heroe): void {
+  //   this.selectedHeroe = heroe;
+  // }
 
   getHeroes(): void {
     this.heroeService.getHeroes().subscribe(heroes=>this.heroes = heroes);

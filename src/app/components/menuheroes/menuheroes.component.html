@@ -2,10 +2,12 @@
   menuheroes works!
 </p> -->
 <!-- {{heroe}} -->
-<app-heroe-detail [heroe]="selectedHeroe"></app-heroe-detail>
+<!-- <app-heroe-detail [heroe]="selectedHeroe"></app-heroe-detail> -->
 <h2>My Heroes</h2>
 <ul class="heroes">
   <li *ngFor="let heroe of heroes" (click)="onSelect(heroe)" [class.selected]="heroe === selectedHeroe">
-    <span class="badge">{{heroe.id}}</span> {{heroe.name}}
+      <a routerLink="/detail/{{heroe.id}}">
+        <span class="badge">{{heroe.id}}</span> {{heroe.name}}
+      </a>
   </li>
 </ul>
