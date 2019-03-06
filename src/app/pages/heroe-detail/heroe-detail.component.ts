@@ -12,16 +12,19 @@ import { HeroeService } from 'src/app/services/heroe.service';
 export class HeroeDetailComponent implements OnInit {
   
   @Input() heroe: Heroe;
-  
+  item:any;
   constructor(private route: ActivatedRoute,private heroeService: HeroeService,private location: Location) { }
 
   ngOnInit() {
     this.getHeroe();
+    console.log(this.item);
   }
   getHeroe(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.heroeService.getHeroe(id)
-      .subscribe(heroe => this.heroe = heroe);
+    const name = this.route.snapshot.paramMap.get('name');
+    console.log(name);
+    this.heroeService.getHeroe(name)
+      .subscribe(heroe => this.item = heroe);
+      
   }
   goBack(): void {
     this.location.back();

@@ -8,7 +8,7 @@ import { HeroeService } from 'src/app/services/heroe.service';
 })
 export class DashboardComponent implements OnInit {
   heroes: Heroe[] = [];
-
+  listOfCountries : any[];
   constructor(private heroeService: HeroeService) { }
 
   ngOnInit() {
@@ -16,6 +16,6 @@ export class DashboardComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.heroeService.getHeroes().subscribe(heroes => this.heroes = heroes.slice(1, 5));
+    this.heroeService.getHeroes().subscribe(heroes => this.listOfCountries = heroes.slice(0, 4));
   }
 }

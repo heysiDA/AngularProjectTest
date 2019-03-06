@@ -3,11 +3,22 @@
 </p> -->
 <!-- {{heroe}} -->
 <!-- <app-heroe-detail [heroe]="selectedHeroe"></app-heroe-detail> -->
-<h2>My Heroes</h2>
+
+
+<!-- <h2>My Heroes</h2>
 <ul class="heroes">
   <li *ngFor="let heroe of heroes" (click)="onSelect(heroe)" [class.selected]="heroe === selectedHeroe">
       <a routerLink="/detail/{{heroe.id}}">
         <span class="badge">{{heroe.id}}</span> {{heroe.name}}
       </a>
+  </li>
+</ul> -->
+
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let item of listOfCountries" [class.selected]="item === selectedHeroe">
+      <a routerLink="/detail/{{item.name}}">
+         <!--<span class="badge">{{listOfCountries.id}}</span>--> {{item.name}} 
+    </a>
   </li>
 </ul>

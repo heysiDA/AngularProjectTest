@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'heroes', component: MenuheroesComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'detail/:id', component: HeroeDetailComponent },
+  { path: 'detail/:name', component: HeroeDetailComponent },
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

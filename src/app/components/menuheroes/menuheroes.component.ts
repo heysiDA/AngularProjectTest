@@ -3,6 +3,7 @@ import { from } from 'rxjs';
 import { Heroe } from 'src/app/domain/heroe';
 // import { HEROES } from 'src/app/domain/mock-heroes';
 import { HeroeService } from 'src/app/services/heroe.service';
+import { log } from 'util';
 @Component({
   selector: 'app-menuheroes',
   templateUrl: './menuheroes.component.html',
@@ -15,7 +16,8 @@ export class MenuheroesComponent implements OnInit {
   // };
 
   // heroes = HEROES;
-  heroes: Heroe[];
+  heroes: any[];
+  listOfCountries : any[];
   // selectedHeroe: Heroe;
 
   constructor(private heroeService: HeroeService) { }
@@ -27,7 +29,10 @@ export class MenuheroesComponent implements OnInit {
   //   this.selectedHeroe = heroe;
   // }
 
+  // getHeroes(): void {
+  //   this.heroeService.getHeroes().subscribe(heroes => this.heroes = heroes);
+  // }
   getHeroes(): void {
-    this.heroeService.getHeroes().subscribe(heroes=>this.heroes = heroes);
+    this.heroeService.getHeroes().subscribe(heroes => this.listOfCountries = heroes);
   }
 }
