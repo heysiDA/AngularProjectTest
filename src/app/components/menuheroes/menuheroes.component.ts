@@ -31,6 +31,7 @@ export class MenuheroesComponent implements OnInit {
 
   // getHeroes(): void {
   //   this.heroeService.getHeroes().subscribe(heroes => this.heroes = heroes);
+  //this.heroeService.getHeroes().subscribe(heroes => console.log(heroes));// para saber por consola l resultado
   // }
   getHeroes(): void {
     this.heroeService.getHeroes().subscribe(heroes => this.listOfCountries = heroes);

@@ -24,7 +24,7 @@ export class HeroeService {
     // TODO: send the message _after_ fetching the hero
     // this.messageService.add(`HeroeService: fetched hero name=${name}`);
     //console.log(this.heroesUrl +'name/'+ name);
-    console.log(this.http.get<any>(this.heroesUrl +'name/'+ name));
+    //console.log(this.http.get<any>(this.heroesUrl +'name/'+ name));    
     return this.http.get<any>(this.heroesUrl +'name/'+ name);
   }
   /** Log a HeroService message with the MessageService */
