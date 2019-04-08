@@ -11,10 +11,10 @@ import { HeroeDetailComponent }  from 'src/app/pages/heroe-detail/heroe-detail.c
 //   declarations: []
 // })
 const routes: Routes = [
-  { path: 'heroes', component: MenuheroesComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'detail/:name', component: HeroeDetailComponent },
+  // { path: 'heroes', component: MenuheroesComponent },
+  // { path: 'dashboard', component: DashboardComponent },
+  // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  // { path: 'detail/:name', component: HeroeDetailComponent },
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
