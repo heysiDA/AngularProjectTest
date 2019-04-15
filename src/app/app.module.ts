@@ -25,6 +25,10 @@ import { HeroeDetailComponent } from './pages/heroe-detail/heroe-detail.componen
 import { MessagesComponent } from './components/messages/messages.component';
 import {AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AutocompleteComboComponent } from './components/autocomplete-combo/autocomplete-combo.component';
+import { CountryDescriptionComponent } from './components/country-description/country-description.component';
+import { CountryNewsComponent } from './components/country-news/country-news.component';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +44,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     HeroeDetailComponent,
     MessagesComponent,
     DashboardComponent,
+    AutocompleteComboComponent,
+    CountryDescriptionComponent,
+    CountryNewsComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,8 +4,8 @@
     font-size: 250%;
   } */
   h1 {
-    font-size: 1.2em;
-    color: rgb(96, 29, 158);
+    font-size: 1.8em;
+    color: rgba(8, 14, 14, 0.966);
     margin-bottom: 0;
   }
   h2 {
@@ -30,4 +30,8 @@
   }
   nav a.active {
     color: #039be5;
+  }
+  .center{
+    margin-top: 5%;
+    margin-left: 40%;
   }
