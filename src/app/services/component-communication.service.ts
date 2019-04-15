@@ -11,6 +11,7 @@ export class ComponentCommunicationService {
   constructor() { }
   
   saveCountryName(name:string){
+    console.log(name);
     this.countryName.next(name);  
   }
   

@@ -15,10 +15,11 @@ export class CountryDescriptionComponent implements OnInit {
 
   ngOnInit() {
     this.communication.currentcountryName.subscribe(countryName => this.countryName = countryName)
+    console.log(this.countryName);
     this.getCountry();
   }
 
   getCountry(){
-    this.descriptionService.getCountry(this.countryName).subscribe(country => this.country = country)
+    this.descriptionService.getCountry(this.countryName).subscribe(country => this.country = country[0])
   }
 }

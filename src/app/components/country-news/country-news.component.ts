@@ -19,7 +19,7 @@ export class CountryNewsComponent implements OnInit {
   }
 
   getCountry(){
-    this.descriptionService.getCountry(this.countryName).subscribe(country => this.country = country)
+    this.descriptionService.getCountry(this.countryName).subscribe(country => this.country = country[0])
   }
 
 }

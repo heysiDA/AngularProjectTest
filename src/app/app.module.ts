@@ -8,6 +8,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { MenuModule } from 'primeng/menu';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
+import {AutoCompleteModule} from 'primeng/autocomplete';
 import { MessageService, MessageModule, CardModule, ConfirmDialogModule, ConfirmationService, TooltipModule, InputTextModule, ListboxModule, PickListModule } from 'primeng/primeng';
 import { RoleHomeComponent } from './pages/role-home/role-home.component';
 import { TableModule } from 'primeng/table';
@@ -66,7 +67,8 @@ import { CountryNewsComponent } from './components/country-news/country-news.com
     ReactiveFormsModule,
     InputTextModule,
     ListboxModule,
-    PickListModule
+    PickListModule,
+    AutoCompleteModule
   ],
   providers: [UserService, RoleService, MessageService, ConfirmationService],
   bootstrap: [AppComponent]

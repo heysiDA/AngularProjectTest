@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AutoCompleteModule} from 'primeng/autocomplete';
 import { CountriesService } from 'src/app/services/countries.service';
+import {ComponentCommunicationService} from 'src/app/services/component-communication.service'
 
 @Component({
   selector: 'app-autocomplete-combo',
@@ -9,19 +9,24 @@ import { CountriesService } from 'src/app/services/countries.service';
 })
 export class AutocompleteComboComponent implements OnInit {
 
-  text: string;
-  results: string[];
+  val: any;
+  results: any[];
 
-  constructor(private countriesService: CountriesService) { }
+  constructor(private countriesService: CountriesService,private communication : ComponentCommunicationService) { }
 
   ngOnInit() {
+    //this.text="Select";
   }
 
   search(event) {
-    this.countriesService.getCountry(event.query).subscribe(data => {
-        this.results = data[0];
-    });
+    console.log(event);
+    this.countriesService.getCountry(event.query).subscribe(data => this.results = data);
+    
   } 
+  saveData(event){
+    console.log(event.name);
+    this.communication.saveCountryName(event.name)
+  }
   handleDropdown(event) {
     //event.query = current value in input field
   }
