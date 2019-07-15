@@ -7,7 +7,7 @@
 <app-menu></app-menu>
 <router-outlet></router-outlet>
 <p-toast></p-toast> -->
-<h1 class="center">{{title}}</h1>
+<!-- <h1 class="center">{{title}}</h1> -->
 <!-- <nav>
   <a routerLink="/heroes">Heroes</a>
   <a routerLink="/dashboard">Dashboard</a>
@@ -15,7 +15,7 @@
 <router-outlet></router-outlet>
 <app-messages></app-messages>-->
 
-<div class="p-grid">
+<!-- <div class="p-grid">
   <div class="p-col-3">
     <app-autocomplete-combo></app-autocomplete-combo>
   </div>
@@ -28,5 +28,13 @@
       <router-outlet></router-outlet>
     </p-card>
   </div>
-</div>
-
+</div> -->
+<ul>
+  <!-- <li *ngFor="let user of users">
+    <app-user [nameUser]="user"></app-user>
+  </li> -->
+  <app-user *ngFor="let user of users" [nameUser]="user"></app-user>
+</ul>
+<!-- <ul>
+  <li *ngIf="activated">Activated</li>
+</ul> -->

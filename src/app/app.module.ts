@@ -29,7 +29,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AutocompleteComboComponent } from './components/autocomplete-combo/autocomplete-combo.component';
 import { CountryDescriptionComponent } from './components/country-description/country-description.component';
 import { CountryNewsComponent } from './components/country-news/country-news.component';
-
+import { HolaMundoComponent } from './hola-mundo/hola-mundo.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,8 @@ import { CountryNewsComponent } from './components/country-news/country-news.com
     AutocompleteComboComponent,
     CountryDescriptionComponent,
     CountryNewsComponent,
+    HolaMundoComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
