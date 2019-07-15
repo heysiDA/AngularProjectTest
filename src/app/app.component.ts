@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {DataService} from './serviceTest/data.service';
 
 @Component({
   selector: 'app-root',
@@ -8,20 +9,18 @@ import { Component } from '@angular/core';
 export class AppComponent {
   name:string = 'Heysi Despa';
   age: number = 25;
+  posts = [];
 //  address:{
 //    street:string;
 //    city:string;
 //  };
 //  hobbies:string[];
 
-//  constructor() { 
-//    this.age = 25;
-//    this.address = {
-//      street : 'Romay 57',
-//      city : 'La Habana'
-//    };
-//    this.hobbies = ['read','run','jump'];
-//    }
+ constructor(private dataServive:DataService) { 
+   this.dataServive.getData().subscribe(data=>{
+     this.posts = data;
+   })
+   }
 users:string[] = ['ryen','heysi','tete'];
 sayHello(){
   alert('Hello heysi!');
@@ -39,4 +38,6 @@ addUser(newUserInput){//lo q se en via es el input y no el valor
   newUserInput.focus();
   return false;// se retorna false para cancelar el evento de resetear el form una vez q se de clic al button
 }
+
+
 }
