@@ -29,12 +29,23 @@
     </p-card>
   </div>
 </div> -->
-<ul>
-  <!-- <li *ngFor="let user of users">
+<!--<ul>
+   <li *ngFor="let user of users">
     <app-user [nameUser]="user"></app-user>
-  </li> -->
+  </li> 
   <app-user *ngFor="let user of users" [nameUser]="user"></app-user>
-</ul>
+</ul>-->
 <!-- <ul>
   <li *ngIf="activated">Activated</li>
 </ul> -->
+
+<div>
+  <p>name: {{name}} </p>
+  <p> Street : {{address.street}}</p>
+  <p>City : {{address.city}} </p>
+  <ul>
+    <li *ngFor="let hobby of hobbies">
+          {{hobby}}
+    </li>
+  </ul>
+</div>
