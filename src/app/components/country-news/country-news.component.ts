@@ -14,8 +14,10 @@ export class CountryNewsComponent implements OnInit {
   constructor(private communication : ComponentCommunicationService, private descriptionService :CountryDescriptionService) { }
 
   ngOnInit() {
-    this.communication.currentcountryName.subscribe(countryName => this.countryName = countryName)
-    this.getCountry();
+    this.communication.currentcountryName.subscribe(countryName => {
+      this.countryName = countryName;
+      this.getCountry();
+    })
   }
 
   getCountry(){
