@@ -29,6 +29,8 @@
     </p-card>
   </div>
 </div> -->
+
+
 <!--<ul>
    <li *ngFor="let user of users">
     <app-user [nameUser]="user"></app-user>
@@ -38,7 +40,7 @@
 <!-- <ul>
   <li *ngIf="activated">Activated</li>
 </ul> -->
-
+<!-- 
 <div>
   <p>name: {{name}} </p>
   <p> Street : {{address.street}}</p>
@@ -48,4 +50,21 @@
           {{hobby}}
     </li>
   </ul>
+</div> -->
+<form (submit)="addUser(newUserInput)">
+  <input type="text" #newUserInput>
+  <button>Save Data</button>
+</form>
+<ul>
+    <li *ngFor="let user of users">
+          {{user}} <button (click)="DeleteUser(user)">Delete</button>
+    </li>
+</ul>
+<div>
+  <form>
+    <input type="text" name = "name" [(ngModel)]="name">
+    <input type="text" name = "age" [(ngModel)]="age">
+  </form>
+    <p>name: {{name}} </p>
+    <p>age : {{age}}</p>
 </div>

@@ -20,7 +20,8 @@ import { RoleDetailsComponent } from './pages/role-details/role-details.componen
 import { RoleAddComponent } from './pages/role-add/role-add.component';
 import { UserAddComponent } from './pages/user-add/user-add.component';
 import { ToastModule } from 'primeng/toast';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';//para utilizar las funcionalidades q existen para el form
+//FormsModule es el q me permite usar el [(ngModule)]
 import { MenuheroesComponent } from './components/menuheroes/menuheroes.component';
 import { HeroeDetailComponent } from './pages/heroe-detail/heroe-detail.component';
 import { MessagesComponent } from './components/messages/messages.component';
